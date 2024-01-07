@@ -1,8 +1,9 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Link, Tabs } from "expo-router";
+import { Link, Tabs, useNavigation } from "expo-router";
 import { Pressable, useColorScheme } from "react-native";
 
 import Colors from "../../constants/Colors";
+import { useNavigationState, useRoute } from "@react-navigation/native";
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -16,11 +17,18 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const routeName = useNavigationState(
+    (state) => state.routes[state.index].name
+  );
+
+  console.log(routeName);
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+        tabBarActiveTintColor: "pink",
+        tabBarActiveBackgroundColor: "red",
+        tabBarStyle: { backgroundColor: "#FCF8F8", height: 70 },
       }}
     >
       <Tabs.Screen
@@ -47,6 +55,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="two/index"
         options={{
+          // tabBarStyle: { display: "none" },
           title: "Tab Two",
           tabBarIcon: ({ color }) => <TabBarIcon name="photo" color={color} />,
         }}
