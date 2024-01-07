@@ -1,15 +1,15 @@
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Link, Tabs, useNavigation } from "expo-router";
-import { Pressable, useColorScheme } from "react-native";
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
-import Colors from "../../constants/Colors";
-import { useNavigationState, useRoute } from "@react-navigation/native";
+import { Pressable, useColorScheme } from 'react-native';
 
+import Colors from '../../constants/Colors';
+import { useNavigationState, useRoute } from '@react-navigation/native';
+import { Link, Tabs, useNavigation } from 'expo-router';
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>["name"];
+  name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
 }) {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
@@ -17,24 +17,22 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-  const routeName = useNavigationState(
-    (state) => state.routes[state.index].name
-  );
+  const routeName = useNavigationState((state) => state.routes[state.index].name);
 
   console.log(routeName);
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "pink",
-        tabBarActiveBackgroundColor: "red",
-        tabBarStyle: { backgroundColor: "#FCF8F8", height: 70 },
+        tabBarActiveTintColor: 'pink',
+        tabBarActiveBackgroundColor: 'red',
+        tabBarStyle: { backgroundColor: '#FCF8F8', height: 70 },
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: "Tab ssOne",
+          title: 'Tab ssOne',
           tabBarIcon: ({ color }) => <TabBarIcon name="child" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
@@ -43,7 +41,7 @@ export default function TabLayout() {
                   <FontAwesome
                     name="info-circle"
                     size={25}
-                    color={Colors[colorScheme ?? "light"].text}
+                    color={Colors[colorScheme ?? 'light'].text}
                     style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
                   />
                 )}
@@ -56,7 +54,7 @@ export default function TabLayout() {
         name="two/index"
         options={{
           // tabBarStyle: { display: "none" },
-          title: "Tab Two",
+          title: 'Tab Two',
           tabBarIcon: ({ color }) => <TabBarIcon name="photo" color={color} />,
         }}
       />
