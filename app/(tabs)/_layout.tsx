@@ -35,7 +35,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: "Tab ssOne",
-          tabBarIcon: ({ color }) => <TabBarIcon name="camera" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="child" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
