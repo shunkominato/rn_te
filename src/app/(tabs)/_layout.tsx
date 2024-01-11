@@ -4,6 +4,7 @@ import { Pressable, useColorScheme } from 'react-native';
 
 import Colors from '../../constants/Colors';
 import { Link, Tabs } from 'expo-router';
+import { useTheme } from 'native-base';
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
@@ -16,19 +17,20 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const { colors } = useTheme();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: 'pink',
-        tabBarActiveBackgroundColor: 'red',
-        tabBarStyle: { backgroundColor: '#FCF8F8', height: 70 },
+        tabBarActiveTintColor: colors.rose[400],
+        tabBarActiveBackgroundColor: '#F5EBEB',
+        tabBarStyle: { backgroundColor: '#FCF8F8' },
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab ssOne',
+          title: '赤ちゃんのプロフィール',
           tabBarIcon: ({ color }) => <TabBarIcon name="child" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
@@ -52,6 +54,14 @@ export default function TabLayout() {
           // tabBarStyle: { display: "none" },
           title: 'Tab Two',
           tabBarIcon: ({ color }) => <TabBarIcon name="photo" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="baby-profile/index"
+        options={{
+          // tabBarStyle: { display: "none" },
+          title: '赤ちゃん',
+          tabBarIcon: ({ color }) => <TabBarIcon name="child" color={color} />,
         }}
       />
     </Tabs>
