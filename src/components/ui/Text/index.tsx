@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 import { Text as DefaultText, StyleSheet } from 'react-native';
+import { DEFAULT_TEXT_COLOR } from '../../../style/color';
+import { DEFAULT_FONT_FAMILY, FONT_SIZE } from '../../../style/font';
 
 export type Props = {
   children: ReactNode;
@@ -8,7 +10,7 @@ export type Props = {
 export default function Text(props: Props) {
   const { style, children, ...otherProps } = props;
   return (
-    <DefaultText style={[{ fontFamily: 'MPLUSRounded' }, styles.text, style]} {...otherProps}>
+    <DefaultText style={[{ fontFamily: DEFAULT_FONT_FAMILY }, styles.text, style]} {...otherProps}>
       {children}
     </DefaultText>
   );
@@ -16,8 +18,8 @@ export default function Text(props: Props) {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 16,
+    fontSize: FONT_SIZE.TEXT,
     fontWeight: 'bold',
-    color: '#000',
+    color: DEFAULT_TEXT_COLOR,
   },
 });
