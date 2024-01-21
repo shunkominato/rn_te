@@ -1,57 +1,48 @@
 import { Box, Input as NBInput } from 'native-base';
-import { DEFAULT_TEXT_COLOR } from '../../../../style/color';
+import { Control, FieldValues, useController } from 'react-hook-form';
+import { TextInput as DefaultTextInput, StyleSheet } from 'react-native';
+import Colors from '../../../../constants/Colors';
+import {
+  DEFAULT_INPUT_BG_COLOR,
+  DEFAULT_INPUT_PLACEHOLDER_COLOR,
+  DEFAULT_TEXT_COLOR,
+} from '../../../../style/color';
 import { DEFAULT_FONT_FAMILY, FONT_SIZE } from '../../../../style/font';
-import { StyleSheet, TextInput } from 'react-native';
+import InputShadow from '../InputShadow';
 
-export default function Input() {
+export type Props = {
+  control: Control<FieldValues, string>;
+  name: string;
+  isInvalid: boolean;
+} & DefaultTextInput['props'];
+
+export default function Input(props: Props) {
+  const { style, control, name, ...otherProps } = props;
+  const { field } = useController({
+    control,
+    defaultValue: '',
+    name,
+  });
   return (
-    // <NBInput
-    //   size="2xl"
-    //   borderRadius="2xl"
-    //   width="3/4"
-    //   backgroundColor="#F6F4E0"
-    //   borderColor="#F3EEDA"
-    //   color={DEFAULT_TEXT_COLOR}
-    //   fontFamily={DEFAULT_FONT_FAMILY}
-    //   fontWeight="bold"
-    //   fontSize={20}
-    //   style={[styles.text]}
-    //   // shadow="1"
-    // />
-    <TextInput
-      style={{
-        backgroundColor: '#F6F4E0',
-        width: '100%',
-        height: 42,
-        shadowColor: '#aaa',
-        shadowOffset: {
-          width: 0,
-          height: 1,
-        },
-        shadowRadius: 2,
-        shadowOpacity: 0.2,
-        elevation: 2,
-        borderRadius: 8,
-        color: DEFAULT_TEXT_COLOR,
-      }}
-    />
+    <InputShadow>
+      <NBInput
+        size="2xl"
+        borderRadius="2xl"
+        width="full"
+        backgroundColor={DEFAULT_INPUT_BG_COLOR}
+        borderWidth="1"
+        borderColor={DEFAULT_INPUT_BG_COLOR}
+        color={DEFAULT_TEXT_COLOR}
+        fontFamily={DEFAULT_FONT_FAMILY}
+        fontWeight="bold"
+        fontSize={20}
+        height="50"
+        style={style}
+        onChangeText={field.onChange}
+        value={field.value}
+        placeholderTextColor={DEFAULT_INPUT_PLACEHOLDER_COLOR}
+        {...otherProps}
+      />
+    </InputShadow>
   );
 }
-
-const styles = StyleSheet.create({
-  text: {
-    backgroundColor: '#F6F4E0',
-    // width: '100%',
-    height: 42,
-    shadowColor: '#333',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowRadius: 2,
-    shadowOpacity: 0.2,
-    elevation: 2,
-    borderRadius: 8,
-    color: DEFAULT_TEXT_COLOR,
-  },
-});

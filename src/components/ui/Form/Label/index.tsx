@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
 import { Text as DefaultText, StyleSheet } from 'react-native';
-import Text from '../../Text';
+import { ReactNode } from 'react';
 import { FONT_SIZE } from '../../../../style/font';
+import Text from '../../Text';
 
 export type Props = {
   children: ReactNode;
@@ -11,7 +11,7 @@ export default function Label(props: Props) {
   const { style, children, ...otherProps } = props;
 
   return (
-    <Text style={[{ padding: 4, fontSize: FONT_SIZE.LABEL }, style]} {...otherProps}>
+    <Text style={[{ padding: 4, marginLeft: 2, fontSize: FONT_SIZE.LABEL }, style]} {...otherProps}>
       {children}
     </Text>
   );

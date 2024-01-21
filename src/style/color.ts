@@ -1,1 +1,5 @@
 export const DEFAULT_TEXT_COLOR = '#847163';
+export const DEFAULT_ALERT_COLOR = '#dc2626';
+export const DEFAULT_SCREEN_COLOR = '#FBFAF5';
+export const DEFAULT_INPUT_BG_COLOR = '#F3EBD2';
+export const DEFAULT_INPUT_PLACEHOLDER_COLOR = '#E6D2C3';

@@ -9,6 +9,7 @@ export const DEFAULT_FONT_FAMILY = 'MPLUSRounded';
 
 export const FONT_SIZE = {
   TEXT: SIZE.L,
+  ALERT_TEXT: SIZE.S,
   LABEL: SIZE.M,
   INPUT: SIZE.M,
 };

@@ -2,9 +2,9 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
-import { NativeBaseProvider, extendTheme } from 'native-base';
-import { useEffect } from 'react';
+import { extendTheme, NativeBaseProvider } from 'native-base';
 import { useColorScheme } from 'react-native';
+import { useEffect } from 'react';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -50,15 +50,15 @@ function RootLayoutNav() {
       // Add new color
       primary: {
         50: 'rose.50',
-        100: 'rose.100',
-        200: 'rose.200',
+        100: 'rose.300',
+        200: 'rose.300',
         300: 'rose.300',
-        400: 'rose.400',
-        500: 'rose.500',
-        600: 'rose.600',
-        700: 'rose.700',
-        800: 'rose.800',
-        900: 'rose.900',
+        400: 'rose.300',
+        500: 'rose.300',
+        600: 'rose.300',
+        700: 'rose.300',
+        800: 'rose.300',
+        900: 'rose.300',
       },
     },
   });
